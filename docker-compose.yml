@@ -42,6 +42,9 @@ services:
   supervisor:
       build: ./supervisor
       container_name: supervisor
+      ports:
+         - "8090:8090"
+         - "8091:8091"
       depends_on:
         mc:
           condition: service_healthy

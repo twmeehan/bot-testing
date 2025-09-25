@@ -48,18 +48,12 @@ async function main() {
   bot.once("spawn", () => {
     console.log(`[${bot.username}] spawned at`, bot.entity.position);
 
-    mineflayerViewerhl(
-      bot,
-      { firstPerson: true }, // viewer config (views)
-      {
-        output: `${args.receiver_host}:${args.receiver_port}`,
-        width: 640,
-        height: 360,
-        interval: 250,       // ms between frames
-        viewDistance: 6,     // chunks
-        frames: 400,         // how many frames to send before stopping
-      }
-    );
+    mineflayerViewerhl(bot, {
+      output: `${args.receiver_host}:${args.receiver_port}`,
+      width: 640,
+      height: 360,
+      frames: 400,
+    });
 
     console.log(
       `[${bot.username}] Headless viewer streaming to ${args.receiver_host}:${args.receiver_port}`
